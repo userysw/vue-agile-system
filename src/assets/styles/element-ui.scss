@@ -1,0 +1,185 @@
+.el-menu-item [class^="fa"],
+.el-submenu [class^="fa"],
+.el-menu-item [class^="el-icon-"],
+.el-submenu [class^="el-icon-"] {
+  vertical-align: middle;
+  margin-right: 5px;
+  width: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.el-menu--collapse .el-menu-item > span,
+.el-menu--collapse .el-submenu .el-submenu__title > span {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  visibility: hidden;
+  display: inline-block;
+}
+.el-menu--collapse .el-menu-item .el-submenu__icon-arrow,
+.el-menu--collapse .el-submenu .el-submenu__title .el-submenu__icon-arrow {
+  display: none;
+}
+
+.el-drawer .el-drawer__header {
+  margin-bottom: 0px;
+  padding: 16px 24px;
+  border-bottom: 1px solid #e8e8e8;
+}
+.el-drawer__body {
+  overflow: auto;
+}
+.el-drawer__container {
+  outline: none;
+}
+
+.el-pagination.is-background .btn-next,
+.el-pagination.is-background .btn-prev,
+.el-pagination.is-background .el-pager li {
+  border-radius: 50% !important;
+}
+.el-pagination.is-background .btn-next:hover,
+.el-pagination.is-background .btn-prev:hover {
+  color: #409eff;
+}
+.el-pagination.is-background .btn-next.disabled,
+.el-pagination.is-background .btn-next:disabled,
+.el-pagination.is-background .btn-prev.disabled,
+.el-pagination.is-background .btn-prev:disabled,
+.el-pagination.is-background .el-pager li.disabled {
+  color: #c0c4cc;
+}
+
+.el-table .cell {
+  text-overflow: unset;
+}
+.el-table-column--selection .cell {
+  padding-left: 14px !important;
+  padding-right: 14px !important;
+}
+.el-table--medium td,
+.el-table--medium th,
+.el-table--mini td,
+.el-table--mini th {
+  padding: 4px 0;
+}
+
+.el-table--mini,
+.el-table--small,
+.el-table__expand-icon {
+  font-size: 13px;
+}
+
+.el-drawer__wrapper {
+  overflow: hidden;
+}
+
+.el-pagination__total {
+  margin-right: 0px;
+  float: left;
+}
+.el-pagination__jump {
+  margin-left: 0px;
+}
+// .el-pagination__sizes{
+//     float:left;
+// }
+
+.el-checkbox-group .el-checkbox {
+  margin-right: 15px;
+}
+.el-checkbox__label {
+  padding-left: 5px;
+}
+
+.el-dropdown-menu--mini .el-dropdown-menu__item {
+  line-height: 30px;
+}
+
+.el-menu-item,
+.el-submenu__title {
+  height: 42px;
+  line-height: 42px;
+}
+.el-submenu .el-menu-item {
+  height: 38px;
+  line-height: 38px;
+  padding: 0 20px;
+}
+
+.el-drawer {
+  outline: none;
+  overflow: unset;
+}
+.el-drawer__header > :first-child {
+  outline: none;
+}
+.el-drawer__close-btn {
+  border: none;
+  outline: none;
+}
+.el-drawer__close-btn:focus .el-dialog__close,
+.el-drawer__close-btn:hover .el-dialog__close {
+  color: #409eff;
+}
+
+.el-tabs--card {
+  > .el-tabs__header {
+
+    .el-tabs__nav-wrap {
+
+      .el-tabs__item.is-active {
+        color: #ffffff;
+        background-color: #409eff;
+      }
+    }
+  }
+}
+
+/*el-date-picker*/
+.el-date-picker__header {
+  margin: 0px 12px;
+}
+.el-picker-panel__content {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.el-date-table td {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.el-date-table th {
+  padding: 3px;
+}
+.el-date-range-picker__content {
+  padding: 5px;
+}
+.el-picker-panel [slot="sidebar"],
+.el-picker-panel__sidebar {
+  width: 80px;
+}
+.el-picker-panel [slot="sidebar"] + .el-picker-panel__body,
+.el-picker-panel__sidebar + .el-picker-panel__body {
+  margin-left: 80px;
+}
+.el-date-range-picker {
+  width: 580px;
+}
+.el-date-range-picker.has-sidebar {
+  width: 660px;
+}
+
+.el-form-item__content .el-input-group {
+  vertical-align: 0px;
+}
+
+.el-main .v-modal {
+  position: absolute;
+}
+
+/*el-dialog*/
+.el-dialog {
+  pointer-events: auto;
+  margin-bottom: 0px;
+}
