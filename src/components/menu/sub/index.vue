@@ -1,4 +1,5 @@
 <script lang="ts" name="MenuSub" setup>
+import { computed } from 'vue'
 import MenuSuper from '../super/index.vue'
 import MenuItem from '../item/index.vue'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
@@ -9,10 +10,6 @@ const IconComponents = Object.values(ElementPlusIconsVue)
 const props = defineProps({
   menu: {
     type: Object,
-    required: true
-  },
-  eventName: {
-    type: String,
     required: true
   }
 })
@@ -40,8 +37,8 @@ if (icon.value) {
       <span :data-index="id">{{ name }}</span>
     </template>
     <template v-for="child in children" :key="child.id">
-      <MenuSuper v-if="child.children.length > 0" :menu="child" :eventName="eventName" />
-      <MenuItem v-else :menu="child" :eventName="eventName" />
+      <MenuSuper v-if="child.children.length > 0" :menu="child" />
+      <MenuItem v-else :menu="child" />
     </template>
   </el-sub-menu>
 </template>

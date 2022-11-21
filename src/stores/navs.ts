@@ -63,7 +63,7 @@ export const useNavsStore = defineStore('navs', () => {
           parentId: '2',
           name: '角色管理',
           icon: '',
-          path: '',
+          path: '/admin/role',
           children: []
         },
         {
