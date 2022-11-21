@@ -1,16 +1,10 @@
+<script lang="ts" name="AdminUser" setup>
+
+</script>
+
 <template>
   <div class="header-user" />
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-
-    }
-  }
-}
-</script>
 
 <style lang="scss" scoped>
 .header-user {

@@ -3,12 +3,7 @@
 @import './root.scss';
 
 body {
-  margin: 0px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
+  color: $color;
 }
 a, a:focus, a:hover {
   cursor: pointer;

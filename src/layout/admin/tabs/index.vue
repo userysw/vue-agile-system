@@ -1,8 +1,55 @@
+<script lang="ts" name="" setup>
+import { useNavsStore } from '@/stores/navs';
+import { useTabsStore } from '@/stores/tabs';
+import { useRoute, useRouter } from 'vue-router';
+
+const $route = useRoute()
+const $router = useRouter()
+
+const tabsStore = useTabsStore()
+const navsStore = useNavsStore()
+
+// 是否显示选项卡
+const showTabs = computed(() => tabsStore.tabs.length > 0)
+
+// 切换选项
+function changeTab(name: string) {
+  const data = tabsStore.tabs.find(item => item.val === name)  
+  if (data?.path) {
+    $router.push(data.path)
+    tabsStore.tabVal = name
+    navsStore.navIndex = name
+  }
+}
+
+// 删除选项
+function removeTab(val: string) {
+  const tabs = tabsStore.tabs
+  if (tabsStore.tabVal === val) {
+    tabs.forEach((tab, index) => {
+      if (tab.val === val) {
+        // 关闭最后一个导航选项卡的时候，切换到默认选项
+        const nextTab = (tabs[index + 1] || tabs[index - 1]) || tabsStore.tab
+        const value = nextTab.val
+        const toPath = nextTab.path
+        const currPath = $route.path
+        if (toPath !== currPath) {
+          $router.push(toPath)
+        }
+        tabsStore.tabVal = value
+        navsStore.navIndex = value
+      }
+    })
+  }
+  tabsStore.removeTab(val)
+}
+</script>
+
 <template>
-  <div v-if="tabs.length > 0" class="tabs-container">
-    <el-tabs v-model="tabVal" type="card" closable @tab-click="changeTab" @tab-remove="removeTab">
+  <div v-if="showTabs" class="tabs-container">
+    <el-tabs v-model="tabsStore.tabVal" type="card" closable @tab-change="changeTab" @tab-remove="removeTab">
       <el-tab-pane
-        v-for="item in tabs"
+        v-for="item in tabsStore.tabs"
         :key="item.name"
         :label="item.name"
         :name="item.val"
@@ -10,65 +57,6 @@
     </el-tabs>
   </div>
 </template>
-
-<script>
-import { mapState } from 'vuex'
-
-export default {
-  data() {
-    return {
-      // 当前选中的导航标签的值
-      tabVal: ''
-    }
-  },
-  computed: {
-    ...mapState({
-      val: state => state.tab.val,
-      tabs: state => state.tab.tabs,
-      paths: state => state.route.paths
-    })
-  },
-  watch: {
-    val: {
-      handler(n) {
-        this.tabVal = n
-      },
-      immediate: true
-    }
-  },
-  methods: {
-    changeTab({ name = '' }) {
-      if (this.val === name) return
-      const data = this.tabs.find(item => item.val === name)
-      if (data?.path) {
-        this.$router.push(data.path)
-        this.$store.commit('tab/updateVal', name)
-        this.$store.commit('menu/updateIndex', name)
-      }
-    },
-    removeTab(val) {
-      const tabs = this.tabs
-      if (this.val === val) {
-        tabs.forEach((tab, index) => {
-          if (tab.val === val) {
-            const nextTab = tabs[index + 1] || tabs[index - 1]
-            const value = nextTab?.val || ''
-            // 关闭最后一个导航选项卡的时候，默认跳转到系统首页
-            const toPath = nextTab?.path || '/admin/home'
-            const currPath = this.$route.path
-            if (toPath !== currPath) {
-              this.$router.push(toPath)
-            }
-            this.$store.commit('tab/updateVal', value)
-            this.$store.commit('menu/updateIndex', value)
-          }
-        })
-      }
-      this.$store.commit('tab/removeTab', val)
-    }
-  }
-}
-</script>
 
 <style lang="scss" scoped>
 .tabs-container ::v-deep {

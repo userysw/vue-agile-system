@@ -1,11 +1,16 @@
-import App from "./App.vue";
-import router from "./router";
+import App from './App.vue'
+import router from './router'
+import mitt from 'mitt'
 
-import './assets/styles/index.scss';
+import './assets/styles/index.scss'
 
-const app = createApp(App);
+const app = createApp(App)
 
-app.use(createPinia());
-app.use(router);
+app.config.globalProperties.$bus = mitt()
 
-app.mount("#app");
+app.use(createPinia())
+app.use(router)
+
+
+
+app.mount("#app")

@@ -2,18 +2,22 @@
 import type { Tab } from '@/interface/nav'
 
 export const useTabsStore = defineStore('tabs', () => {
+  // 当前选中选项的val
   const tabVal = ref('')
 
-  const tabs = reactive<Array<Tab>>([])
+  // 默认选项
+  const tab = reactive<Tab>({
+    name: '系统首页',
+    val: 'home',
+    path: '/admin/home'
+  })
 
-  // 更新当前选中的导航标签值
-  function updateVal(val: string) {
-    tabVal.value = val
-  }
+  // 当前打开的选项列表
+  const tabs = reactive<Array<Tab>>([])
 
   // 添加导航标签
   function addTab({ name = '', id = '', path = '' }) {
-    updateVal(id)
+    tabVal.value = id
     const tab = tabs.find(tab => tab.val === id)
     if (tab) {
       // 已存在，无需添加
@@ -36,6 +40,7 @@ export const useTabsStore = defineStore('tabs', () => {
 
   return {
     tabVal,
+    tab,
     tabs,
     addTab,
     removeTab

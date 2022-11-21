@@ -52,19 +52,25 @@ ul {
   list-style: none;
 }
 
+html {
+  box-sizing: border-box;
+}
+
 body {
   -webkit-text-size-adjust: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  font-family: PingFangSC-Regular, PingFang SC, MicrosoftYaHei;
+  font-size: 16px;
   font-weight: 400;
+  font-family: PingFangSC-Regular, PingFang SC, MicrosoftYaHei;
 }
 
-// html {
-//   font-size: 16px;
-// }
 html,
 body {
+  width: 100%;
   height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 ::-webkit-scrollbar-track-piece {
@@ -101,10 +107,6 @@ textarea {
 
 button {
   cursor: pointer;
-}
-
-html {
-  box-sizing: border-box;
 }
 
 * {
@@ -179,11 +181,6 @@ button {
 
 i {
   font-style: normal;
-}
-
-html,
-body {
-  overflow: hidden;
 }
 
 fieldset {
