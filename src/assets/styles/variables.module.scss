@@ -1,0 +1,16 @@
+// 对应 root.scss
+$scale: var(--scale);
+$header-bgc: var(--header-bgc);
+$aside-bgc: var(--aside-bgc);
+$active-bgc: var(--active-bgc);
+$active-color: var(--active-color);
+$tabs-bgc: var(--tabs-bgc);
+
+:export {
+  scale: $scale;
+  header_bgc: $header-bgc;
+  aside_bgc: $aside-bgc;
+  active_bgc: $active-bgc;
+  active_color: $active-color;
+  tabs_bgc: $tabs-bgc;
+}

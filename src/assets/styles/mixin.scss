@@ -1,0 +1,17 @@
+@mixin flex() {
+  display: flex;
+}
+
+@mixin flex-row($justify-content: flex-start, $align-items: flex-start) {
+  @include flex();
+  flex-direction: row;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
+@mixin flex-col($justify-content: flex-start, $align-items: flex-start) {
+  @include flex();
+  flex-direction: column;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}

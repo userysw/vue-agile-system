@@ -1,0 +1,3 @@
+@function toVW($number) {
+  @return calc(100vw / 1920 * $number)
+}

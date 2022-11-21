@@ -1,0 +1,306 @@
+@import './reset.scss';
+@import './element-ui.scss';
+@import './root.scss';
+
+body {
+  margin: 0px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+a, a:focus, a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+#app,.container {
+  height: 100%;
+}
+
+.container {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width: 100%;
+}
+
+.container .aside{
+  overflow: unset;
+  position: relative;
+}
+
+.container .aside .el-menu a {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+}
+
+.aside .el-scrollbar{
+  height: calc(100% - 50px);
+}
+
+.page-component__scroll .el-scrollbar__wrap{
+  overflow-x: auto !important;
+  padding-bottom: 17px;
+}
+
+.container .el-header {
+  padding: 0px;
+}
+.container .el-header .right-menu {
+  text-align: right;
+  padding-right: 5px;
+  float: right;
+  width: auto;
+  overflow: hidden;
+  height: 100%;
+  line-height: 100%;
+}
+.container .el-header .right-menu .right-menu-item{
+  padding: 0px 12px;
+  cursor: pointer;
+  transition: all .3s;
+  line-height: 50px;
+}
+.container .el-header .right-menu .right-menu-item:hover{
+  /* background: rgba(0,0,0,.025); */
+  background: #66b1ff;
+}
+.container .el-header .right-menu .user-info{
+  margin: 7px 8px 7px 0px;
+  vertical-align: top;
+  /* background-color: #409EFF; */
+  background-color:transparent;
+  color:#fff;
+  border: 2px solid #fff;
+  font-size: 12px;
+}
+
+.container .aside .logo {
+  height: 50px;
+  line-height: 50px;
+  font-size: 22px;
+  background: #409EFF;
+  color:#fff;
+  overflow: hidden;
+  padding-left: 20px;
+}
+.container .el-header .logo img {
+  width: 40px;
+  float: left;
+  margin: 10px 10px 10px 18px;
+}
+
+.navbar{
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  background: #409EFF;
+  -webkit-box-shadow: 0 2px 4px rgba(0,21,41,.08);
+  box-shadow: 0 2px 4px rgba(0,21,41,.08);
+}
+.navbar .breadcrumb-container{
+  float: left;
+  margin-left: 8px;
+}
+
+.container .el-header .fold-btn {
+  padding: 0px 15px;
+  width: 14px;
+  height: 50px;
+  line-height: 50px;
+  cursor: pointer;
+  float:left;
+  cursor: pointer;
+  -webkit-transition: background .3s;
+  transition: background .3s;
+  -webkit-tap-highlight-color: transparent;
+  & i{
+    font-size: 18px;
+    color:#fff;
+  }
+}
+.container .el-header .fold-btn:hover {
+  background: #66b1ff;
+}
+
+.container .el-main{
+  padding: 0px;
+  height:100%;
+}
+.container .main{
+  position: relative;
+}
+
+.container .aside .el-menu {
+  height: 100%;
+  border: none;
+}
+// .container .aside .el-menu:not(.el-menu--collapse) {
+//   width: 200px;
+// }
+.container .main aside .el-menu--collapse{
+  width:65px;
+}
+
+.main .el-form--label-top .el-form-item__label {
+  line-height: 1.5;
+  padding-bottom: 8px;
+}
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0 1000px #fff inset;
+}
+
+.drawer-footer{
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  border-top: 1px solid rgb(233, 233, 233);
+  padding: 16px;
+  background: rgb(255, 255, 255);
+  text-align: right;
+  z-index: 1;
+}
+
+.pagination{
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.ad-pagination__selection{
+  float: left;
+  font-weight: 400;
+  color: #606266;
+  margin-right:10px;
+}
+.ad-form-query{
+  & .el-form-item--mini, & .el-form-item--small{
+    &.el-form-item{
+      margin-bottom: 10px;
+    }
+  }
+}
+
+//拖拽
+.user-select--none {
+  user-select: none;
+}
+.my-draggable__handle{
+  cursor:move
+}
+.my-draggable__clone{
+  position:absolute;
+  user-select:none;
+  opacity:.6;
+  z-index:2000
+}
+.my-draggable__clone--translate{
+  transition:all .2s
+}
+//更改尺寸
+.my-resize__e{
+  position: absolute;
+  right:-5px;
+  top:0px;
+  bottom:0px;
+  width:10px;
+  cursor: e-resize;
+  z-index: 2;
+}
+.my-resize__w{
+  position: absolute;
+  left:-5px;
+  top:0px;
+  bottom:0px;
+  width:10px;
+  cursor: w-resize;
+  z-index: 2;
+}
+.my-resize__n{
+  position: absolute;
+  left:0px;
+  right:0px;
+  top:-5px;
+  height:10px;
+  cursor: n-resize;
+  z-index: 2;
+}
+.my-resize__s{
+  position: absolute;
+  left:0px;
+  right:0px;
+  bottom:-5px;
+  height:10px;
+  cursor: s-resize;
+  z-index: 2;
+}
+.my-resize__nw{
+  position: absolute;
+  left:-5px;
+  top:-5px;
+  width:10px;
+  height:10px;
+  cursor: nw-resize;
+  z-index: 2;
+}
+.my-resize__ne{
+  position: absolute;
+  right:-5px;
+  top:-5px;
+  width:10px;
+  height:10px;
+  cursor: ne-resize;
+  z-index: 2;
+}
+.my-resize__sw{
+  position: absolute;
+  left:-5px;
+  bottom:-5px;
+  width:10px;
+  height:10px;
+  cursor: sw-resize;
+  z-index: 2;
+}
+.my-resize__se{
+  position: absolute;
+  right:-5px;
+  bottom:-5px;
+  width:10px;
+  height:10px;
+  cursor: se-resize;
+  z-index: 2;
+}
+
+
+/*flex*/
+.my-flex{
+  display:block;
+  -webkit-box-flex:1;
+  -ms-flex:1;
+  flex:1;
+  -ms-flex-preferred-size:auto;
+  flex-basis:auto;
+  overflow:auto;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+}
+
+/*dialog*/
+.el-dialog__headertool{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  i{
+    margin-left:10px;
+    font-size: 16px;
+    cursor: pointer;
+    &:hover{
+      color:#409eff;
+    }
+  }
+}
