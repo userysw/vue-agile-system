@@ -1,3 +1,8 @@
+:root {
+  --el-menu-item-height: 40px; // 菜单每栏的高度
+  --el-menu-sub-item-height: 40px; // 菜单每栏的行高度
+}
+
 .el-menu-item [class^="fa"],
 .el-submenu [class^="fa"],
 .el-menu-item [class^="el-icon-"],

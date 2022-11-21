@@ -1,11 +1,14 @@
 :root {
   --scale: calc(100vw / 1920); // vm和px的比例值
 
+  --bgc: #ffffff; // 常规背景色
+  --color: #333333; // 常规的字体色
+
+  --active-bgc: #ecf5ff; // 激活的背景色
+  --active-color: #409EFF; // 激活的字体色
+
   --header-bgc: #242f42; // 顶部背景色
   --aside-bgc: #ffffff; // 左侧菜单栏背景色
-
-  --active-bgc: #ecf5ff; // 选中的背景色
-  --active-color: #409EFF; // 选中的字体色
 
   --tabs-bgc: #f7f7f7; // 选项卡的背景色
 }

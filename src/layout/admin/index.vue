@@ -15,10 +15,10 @@ export default {
     next(vm => {
       if (path) {
         routesStore.addRoute(path)
-        const nav = navsStore.list.find(nav => nav.path === path)
+        const nav = navsStore.navList.find(nav => nav.path === path)
         if (nav) {
           tabsStore.addTab(nav)
-          navsStore.index = nav.id
+          navsStore.navIndex = nav.id
         }
       }
     })
@@ -31,16 +31,16 @@ import { useRoute } from 'vue-router'
 import System from './system/index.vue'
 import User from './user/index.vue'
 import Navs from './navs/index.vue'
-// import Tabs from './tabs/index.vue'
+import Tabs from './tabs/index.vue'
 
 const $route = useRoute()
 
 const tabsStore = useTabsStore()
 const routesStore = useRoutesStore()
 
-const showTabs = tabsStore.tabs.length > 0
-const paths = routesStore.list
-const isKeepAlive = paths.includes($route.path)
+const showTabs = computed(() => tabsStore.tabs.length > 0)
+
+const isKeepAlive = routesStore.routes.includes($route.path)
 </script>
 
 <template>
@@ -60,7 +60,7 @@ const isKeepAlive = paths.includes($route.path)
       <el-container>
         <el-header v-show="showTabs" height="40px">
           <!-- 选项卡 当前打开的菜单 -->
-          <!-- <Tabs /> -->
+          <Tabs />
         </el-header>
         <el-main class="admin-main">
           <keep-alive v-if="isKeepAlive">

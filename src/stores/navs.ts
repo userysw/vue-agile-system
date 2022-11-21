@@ -2,15 +2,16 @@
 import { listToTree } from '@/utils'
 import type { Nav } from '@/interface/nav'
 
-export const useNavsStore = defineStore('navs', () => {
-  const index = ref('')
 
-  let list = reactive<Nav[]>([
+export const useNavsStore = defineStore('navs', () => {
+  const navIndex = ref('')
+
+  let navList = reactive<Nav[]>([
     {
       id: 'home',
       parentId: '0',
       name: '系统首页',
-      icon: 'el-icon-location',
+      icon: '',
       path: '/admin/home',
       children: []
     },
@@ -18,7 +19,7 @@ export const useNavsStore = defineStore('navs', () => {
       id: '2',
       parentId: '0',
       name: '基础管理',
-      icon: 'el-icon-menu',
+      icon: '',
       path: '',
       children: []
     },
@@ -26,7 +27,7 @@ export const useNavsStore = defineStore('navs', () => {
       id: '3',
       parentId: '2',
       name: '角色管理',
-      icon: 'el-icon-document',
+      icon: '',
       path: '/admin/role',
       children: []
     },
@@ -41,12 +42,12 @@ export const useNavsStore = defineStore('navs', () => {
   ])
 
   // 导航
-  let tree = reactive([
+  let navTree = reactive([
     {
       id: 'home',
       parentId: '0',
       name: '系统首页',
-      icon: 'el-icon-location',
+      icon: '',
       path: '/admin/home',
       children: []
     },
@@ -54,22 +55,22 @@ export const useNavsStore = defineStore('navs', () => {
       id: '2',
       parentId: '0',
       name: '基础管理',
-      icon: 'el-icon-menu',
+      icon: '',
       path: '',
       children: [
         {
           id: '3',
           parentId: '2',
           name: '角色管理',
-          icon: 'el-icon-document',
-          path: '/admin/role',
+          icon: '',
+          path: '',
           children: []
         },
         {
           id: '4',
           parentId: '2',
           name: '用户管理',
-          icon: '',
+          icon: 'Avatar',
           path: '/admin/user',
           children: []
         }
@@ -77,20 +78,15 @@ export const useNavsStore = defineStore('navs', () => {
     }
   ])
 
-  function updateIndex(val: string) {
-    index.value = val || 'home'
-  }
-
   function updateMenus(navs: any[]) {
-    list = navs
-    tree = listToTree(navs, null, 'id', 'parentId')
+    navList = navs
+    navTree = listToTree(navs, null, 'id', 'parentId')
   }
 
   return {
-    index,
-    list,
-    tree,
-    updateIndex,
+    navIndex,
+    navList,
+    navTree,
     updateMenus
   }
 })

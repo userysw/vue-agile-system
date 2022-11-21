@@ -1,3 +1,7 @@
+<script lang="ts" name="AdminSystem" setup>
+
+</script>
+
 <template>
   <div class="system">
     <div class="logo" />
@@ -5,20 +9,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'System',
-  data() {
-    return {
-
-    }
-  }
-}
-</script>
-
 <style lang="scss" scoped>
-// @import '@/assets/styles/flex.scss';
-
 .system {
   width: auto;
   min-width: 240px;

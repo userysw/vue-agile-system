@@ -8,8 +8,8 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import Inspect from 'vite-plugin-inspect'
 
 //#region 自动按需引入 Icons 组件
-// import Icons from 'unplugin-icons/vite'
-// import IconsResolver from 'unplugin-icons/resolver'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 //#endregion
 
 //#region 自动按需引入 ElementPlus 组件
@@ -32,17 +32,17 @@ export default defineConfig({
     vueJsx(),
     vueSetupExtend(),
     Inspect(),
-    // Icons({
-    //   autoInstall: true,
-    // }),
+    Icons({
+      autoInstall: true,
+    }),
     AutoImport({
       // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
       imports: ['pinia', 'vue'],
       resolvers: [
         // 自动导入 Icons 组件
-        // IconsResolver({
-        //   prefix: 'Icon'
-        // }),
+        IconsResolver({
+          prefix: 'Icon'
+        }),
         // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
         ElementPlusResolver()
       ],
@@ -51,9 +51,9 @@ export default defineConfig({
     Components({
       resolvers: [
         // 自动注册 Icons 组件
-        // IconsResolver({
-        //   enabledCollections: ['ep'],
-        // }),
+        IconsResolver({
+          enabledCollections: ['ep'],
+        }),
         // 自动注册 Element Plus 组件
         ElementPlusResolver()
       ],
@@ -62,7 +62,8 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      // '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': pathSrc
     }
   },
   css: {
