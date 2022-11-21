@@ -63,9 +63,9 @@ const isKeepAlive = routesStore.routes.includes($route.path)
           <Tabs />
         </el-header>
         <el-main class="admin-main">
-          <keep-alive v-if="isKeepAlive">
-            <router-view />
-          </keep-alive>
+          <KeepAlive v-if="isKeepAlive">
+            <RouterView />
+          </KeepAlive>
           <router-view v-else />
         </el-main>
       </el-container>
