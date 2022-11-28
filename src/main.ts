@@ -1,16 +1,16 @@
-import App from './App.vue'
-import router from './router'
-import mitt from 'mitt'
-
 import './assets/styles/index.scss'
 
-const app = createApp(App)
+import mitt from 'mitt'
 
-app.config.globalProperties.$bus = mitt()
+import App from './App.vue'
+import router from './router'
+
+const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
 
+// 全局事件总线
+app.provide('$bus', mitt())
 
-
-app.mount("#app")
+app.mount('#app')

@@ -27,6 +27,25 @@ const pathTypings = path.resolve(__dirname, 'typings')
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    // 将此设置为 0.0.0.0 或者 true 将监听所有地址，包括局域网和公网地址。
+    host: 'localhost',
+    port: 8888,
+    // 设为 true 时若端口已被占用则会直接退出，而不是尝试下一个可用端口
+    strictPort: false,
+    open: true,
+    proxy: {
+      // 选项写法
+      // '/api': {
+      //   target: 'http://xxxxxxxx.com',
+      //   // ws: true
+      //   changeOrigin: true,
+      //   rewrite: (path) => path.replace(/^\/api/, '')
+      // }
+    },
+    // 指定服务器响应的 header
+    headers: {}
+  },
   plugins: [
     vue(),
     vueJsx(),
@@ -73,7 +92,7 @@ export default defineConfig({
         additionalData: [`
           @import './src/assets/styles/mixin.scss';
           @import './src/assets/styles/function.scss';
-          @import './src/assets/styles/variables.module.scss';
+          @import './src/assets/styles/variables.scss';
         `]
       }
     }

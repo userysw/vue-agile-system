@@ -1,21 +1,4 @@
-// 对应 root.scss
-$scale: var(--scale); // vm和px的比例值
-
-$bgc: var(--bgc); // 普通背景色
-
-$color: var(--color); // 普通的字体色
-
-$active-bgc: var(--active-bgc); // 激活的背景色
-
-$active-color: var(--active-color); // 激活的字体色
-
-$header-bgc: var(--header-bgc); // 顶部背景色
-
-$aside-bgc: var(--aside-bgc); // 左侧菜单栏背景色
-
-$tabs-bgc: var(--tabs-bgc); // 选项卡的背景色
-
-
+@import './variables.scss';
 
 :export {
   scale: $scale;
